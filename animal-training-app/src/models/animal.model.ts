@@ -34,4 +34,4 @@ const animalSchema = new mongoose.Schema ({
   },
 });
 
-export const Animal = mongoose.model('Animal', animalSchema);
+export const Animal = mongoose.models.Animal || mongoose.model('Animal', animalSchema, 'animals');

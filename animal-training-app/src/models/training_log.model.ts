@@ -41,4 +41,4 @@ const trainingLogSchema = new mongoose.Schema ({
   },
 });
 
-export const TrainingLog = mongoose.model('TrainingLog', trainingLogSchema);
+export const TrainingLog = mongoose.models.TrainingLog || mongoose.model('TrainingLog', trainingLogSchema, 'training_logs');
