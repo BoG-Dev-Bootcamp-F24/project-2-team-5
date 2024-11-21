@@ -29,4 +29,9 @@ const userSchema = new mongoose.Schema ({
   },
 });
 
+export type UserState = Omit<
+  mongoose.InferSchemaType<typeof userSchema>,
+  'password'
+> & { _id: string };
+
 export const User = mongoose.models.User || mongoose.model('User', userSchema, 'users');
