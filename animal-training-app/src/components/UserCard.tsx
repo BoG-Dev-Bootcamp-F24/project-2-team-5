@@ -23,9 +23,9 @@ export default function UserCard({ user }: UserCardProps) {
         </div>
         <div className="flex flex-col ml-4">
           <div>
-            <span>{user.fullName}</span>
+            <span className="font-bold text-xl">{user.fullName}</span>
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row mt-2 text-gray-500">
             <span>{user.admin ? 'Admin' : 'User'}</span>
             <span className="pl-1">- Atlanta, Georgia</span>
           </div>

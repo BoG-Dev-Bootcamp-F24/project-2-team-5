@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import ViewHeader from '@/components/ViewHeader';
 import CreateTrainingLog from '@/components/forms/CreateTrainingLog';
+import EditTrainingLog from '@/components/forms/EditTrainingLog';
 
 import { Heebo } from 'next/font/google';
 
@@ -35,6 +36,7 @@ export default function TrainingLogView() {
   const [logs, setLogs] = useState<TrainingLog[]>([]);
   const [loading, setLoading] = useState(true);
   const [isCreating, setIsCreating] = useState(false);
+  const [editingLog, setEditingLog] = useState<TrainingLog | null>(null);
 
   useEffect(() => {
     fetchLogs();
@@ -68,6 +70,19 @@ export default function TrainingLogView() {
         onCancel={() => setIsCreating(false)}
         onSave={() => {
           setIsCreating(false);
+          fetchLogs();
+        }}
+      />
+    );
+  }
+
+  if (editingLog) {
+    return (
+      <EditTrainingLog 
+        trainingLog={editingLog}
+        onCancel={() => setEditingLog(null)}
+        onSave={() => {
+          setEditingLog(null);
           fetchLogs();
         }}
       />
@@ -121,13 +136,16 @@ export default function TrainingLogView() {
               )}
             </div>
             <div className="flex flex-grow justify-end items-center">
-            <div className="mr-6 w-20 h-20 rounded-full bg-primary-component flex justify-center items-center">
-              <img 
-                src="/pencil.svg"
-                alt="Edit"
-                className=""
-              />
-            </div>
+              <button 
+                onClick={() => setEditingLog(log)}
+                className="mr-6 w-20 h-20 rounded-full bg-primary-component flex justify-center items-center hover:bg-red-500 transition-colors duration-200"
+              >
+                <img 
+                  src="/pencil.svg"
+                  alt="Edit"
+                  className="w-8 h-8"
+                />
+              </button>
             </div>
           </div>
         ))}
