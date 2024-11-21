@@ -62,7 +62,16 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
+    <div className="min-h-screen -mt-[102px] flex items-center justify-center bg-white">
+
+      <div className="absolute bottom-0 left-0">
+        <img 
+          src="/red-circle.svg"
+          alt="decorative background shape"
+          className="w-auto h-auto"
+        />
+      </div>
+
       <div className="max-w-xl w-full pb-10">
         <h2 className="text-center text-5xl font-bold text-gray-900">
           Create Account
@@ -70,7 +79,7 @@ export default function Signup() {
         
         <form className="mt-8" onSubmit={handleSubmit}>
           {error && (
-            <div className="text-red-500 bg-red-50 p-3 rounded text-center">
+            <div className="text-primary-component bg-red-50 p-3 rounded text-center">
               {error}
             </div>
           )}
@@ -81,7 +90,7 @@ export default function Signup() {
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               placeholder="Full Name"
-              className="w-full px-1 py-1 border-b-2 border-red-600 placeholder-black focus:outline-none"
+              className="w-full px-1 py-1 border-b-2 border-primary-component placeholder-black focus:outline-none"
             />
             
             <input
@@ -89,7 +98,7 @@ export default function Signup() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              className="w-full px-1 py-1 border-b-2 border-red-600 placeholder-black focus:outline-none"
+              className="w-full px-1 py-1 border-b-2 border-primary-component placeholder-black focus:outline-none"
             />
             
             <input
@@ -97,7 +106,7 @@ export default function Signup() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              className="w-full px-1 py-1 border-b-2 border-red-600 placeholder-black focus:outline-none"
+              className="w-full px-1 py-1 border-b-2 border-primary-component placeholder-black focus:outline-none"
             />
 
             <input
@@ -105,7 +114,7 @@ export default function Signup() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Confirm Password"
-              className="w-full px-1 py-1 border-b-2 border-red-600 placeholder-black focus:outline-none"
+              className="w-full px-1 py-1 border-b-2 border-primary-component placeholder-black focus:outline-none"
             />
           </div>
 
@@ -115,7 +124,7 @@ export default function Signup() {
               id="admin"
               checked={admin}
               onChange={(e) => setAdmin(e.target.checked)}
-              className="h-6 w-6 accent-red-600 cursor-pointer"
+              className="h-6 w-6 accent-primary-component cursor-pointer"
             />
             <label htmlFor="admin" className="text-gray-700 text-lg">
                 Admin access
@@ -124,7 +133,7 @@ export default function Signup() {
 
           <button
             type="submit"
-            className="w-full py-3 rounded-2xl bg-red-600 hover:bg-red-500 transition-colors duration-300 mt-8 text-white text-2xl font-semibold focus:outline-none"
+            className="w-full py-3 rounded-2xl bg-primary-component hover:bg-red-600 transition-colors duration-300 mt-8 text-white text-2xl font-semibold focus:outline-none"
           >
             Sign Up
           </button>
@@ -132,8 +141,8 @@ export default function Signup() {
       
         <p className="mt-6 text-center text-lg">
           Already have an account? <Link href="/login">
-            <span className="text-red-600 font-semibold hover:text-red-500 transition-colors cursor-pointer">
-              Log in
+            <span className="text-primary-component font-semibold hover:text-red-600 transition-colors cursor-pointer">
+              Sign in
             </span>
           </Link>
         </p>

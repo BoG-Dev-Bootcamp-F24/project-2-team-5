@@ -23,7 +23,7 @@ export default function Login() {
 
     try {
       await login(email, password);
-      router.push('/'); 
+      router.push('/dashboard'); 
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -34,7 +34,16 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
+    <div className="min-h-screen -mt-[102px] flex items-center justify-center bg-white">
+
+      <div className="absolute bottom-0 left-0">
+        <img 
+          src="/red-circle.svg" 
+          alt="decorative background shape"
+          className="w-auto h-auto"
+        />
+      </div>
+
       <div className="max-w-xl w-full pb-10">
         <h2 className="text-center text-5xl font-bold text-gray-900">
           Login
@@ -53,7 +62,7 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              className="w-full px-1 py-1 border-b-2 border-red-600 placeholder-black focus:outline-none"
+              className="w-full px-1 py-1 border-b-2 border-primary-component placeholder-black focus:outline-none"
             />
             
             <input
@@ -61,13 +70,13 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              className="w-full px-1 py-1 border-b-2 border-red-600 placeholder-black focus:outline-none"
+              className="w-full px-1 py-1 border-b-2 border-primary-component placeholder-black focus:outline-none"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 rounded-2xl bg-red-600 hover:bg-red-500 transition-colors duration-300 mt-16 text-white text-2xl font-semibold focus:outline-none"
+            className="w-full py-3 rounded-2xl bg-primary-component hover:bg-red-600 transition-colors duration-300 mt-16 text-white text-2xl font-semibold focus:outline-none"
           >
             Log In
           </button>
@@ -76,7 +85,7 @@ export default function Login() {
         <p className="mt-6 text-center text-lg">
           Don't have an account?{' '}
           <Link href="/signup">
-            <span className="text-red-600 font-semibold hover:text-red-500 transition-colors cursor-pointer">
+            <span className="text-primary-component font-semibold hover:text-red-600 transition-colors cursor-pointer">
               Sign up
             </span>
           </Link>

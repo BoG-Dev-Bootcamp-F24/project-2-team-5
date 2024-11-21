@@ -2,6 +2,18 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { AuthProvider } from '@/context/AuthContext';
+import Navbar from "@/components/Navbar";
+import { Oswald, Heebo } from 'next/font/google';
+
+const oswald = Oswald({
+  subsets: ['latin'],
+  weight: ['500'],
+});
+
+const heebo = Heebo({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'], 
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,7 +42,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
-          {children}
+          <Navbar />
+          <main>
+            {children}
+          </main>
         </AuthProvider>
       </body>
     </html>
