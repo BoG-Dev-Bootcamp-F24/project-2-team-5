@@ -90,12 +90,14 @@ export default function TrainingLogView() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col h-full">
       <ViewHeader 
         title="Training logs" 
         onCreateNew={() => setIsCreating(true)}
       />
-      <div className="flex flex-col items-center space-y-6 w-full">
+      <div className="flex-1 min-h-0">
+      <div className="h-full overflow-auto px-8">
+      <div className="flex flex-col items-center w-full space-y-6 py-8">
         {logs.map((log) => (
           <div 
             key={log._id} 
@@ -155,6 +157,8 @@ export default function TrainingLogView() {
             No training logs found
           </div>
         )}
+      </div>
+      </div>
       </div>
     </div>
   );

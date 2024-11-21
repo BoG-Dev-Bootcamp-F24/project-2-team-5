@@ -37,7 +37,7 @@ export default function Dashboard() {
         currentView={currentView} 
         onViewChange={setCurrentView} 
       />
-      <main className="flex-1 py-8">
+      <main className="flex-1 mt-8">
         {currentView === 'training-logs' && <TrainingLogView />}
         {currentView === 'animals' && <AnimalView />}
         {currentView === 'all-animals' && <AdminAnimalView />}
