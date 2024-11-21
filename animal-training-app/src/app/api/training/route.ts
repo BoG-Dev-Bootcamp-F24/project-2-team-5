@@ -22,6 +22,11 @@ export async function GET(request: Request) {
         path: 'animal',
         model: 'Animal'
       })
+      .populate({
+        path: 'user',
+        model: 'User',
+        select: 'fullName'
+      })
       .sort({ date: -1 })
       .exec();
 

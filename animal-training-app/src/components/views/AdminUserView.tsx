@@ -2,32 +2,28 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import ViewHeader from '@/components/ViewHeader';
-import AnimalCard from '@/components/AnimalCard';
+import UserCard from '@/components/UserCard';
 
-export interface Animal {
+export interface User {
   _id: string;
-  name: string;
-  breed: string;
-  hoursTrained: number;
-  profilePicture: string;
-  owner: {
-    fullName: string;
-  };
+  fullName: string;
+  email: string;
+  admin: boolean;
 }
 
-export default function AdminAnimalView() {
+export default function AdminUserView() {
   const { user } = useAuth();
-  const [animals, setAnimals] = useState<Animal[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchAnimals();
+    fetchUsers();
   }, [user]);
 
-  const fetchAnimals = async () => {
+  const fetchUsers = async () => {
     try {
       if (!user?._id) return;
-      const response = await fetch('/api/admin/animal', {
+      const response = await fetch('/api/admin/users', {
         headers: {
           'Content-Type': 'application/json',
           'user-id': user._id
@@ -40,9 +36,9 @@ export default function AdminAnimalView() {
 
       const result = await response.json();
       if (!result.success) throw new Error(result.error);
-      setAnimals(result.data);
+      setUsers(result.data);
     } catch (error) {
-      console.error('Error fetching animals:', error);
+      console.error('Error fetching users:', error);
     } finally {
       setLoading(false);
     }
@@ -55,19 +51,19 @@ export default function AdminAnimalView() {
   return (
     <div>
       <ViewHeader 
-        title="Animals" 
+        title="Users" 
       />
       <div className="p-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        {animals.map((animal) => (
-          <AnimalCard 
-            key={animal._id}
-            animal={animal}
+        {users.map((userData) => (
+          <UserCard 
+            key={userData._id}
+            user={userData}
           />
         ))}
   
-        {animals.length === 0 && (
+        {users.length === 0 && (
           <div className="col-span-full text-center text-gray-500 py-8">
-            No animals found
+            No users found
           </div>
         )}
       </div>

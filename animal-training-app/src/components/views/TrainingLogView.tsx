@@ -59,7 +59,7 @@ export default function TrainingLogView() {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   if (isCreating) {

@@ -54,7 +54,6 @@ export default function CreateAnimal({ onCancel, onSave }: CreateAnimalProps) {
     <div>
       <ViewHeader 
         title="New Animal" 
-        onCreateNew={() => {}} 
       />
       <div className="p-8">
         <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">

@@ -91,7 +91,6 @@ export default function CreateTrainingLog({ onCancel, onSave }: CreateTrainingLo
     <div>
       <ViewHeader 
         title="Training logs" 
-        onCreateNew={() => {}} // Empty function since we're already in create mode
       />
       <div className="p-8">
         <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">

@@ -57,14 +57,13 @@ export default function AdminTrainingLogView() {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   return (
     <div>
       <ViewHeader 
         title="Training logs" 
-        onCreateNew={() => {}} 
       />
       <div className="flex flex-col items-center space-y-6 w-full">
         {logs.map((log) => (
