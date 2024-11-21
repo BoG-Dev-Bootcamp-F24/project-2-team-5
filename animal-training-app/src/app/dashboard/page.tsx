@@ -6,6 +6,7 @@ import Menu from '@/components/Menu';
 import TrainingLogView from '@/components/views/TrainingLogView';
 import AnimalView from '@/components/views/AnimalView';
 import AdminAnimalView from '@/components/views/AdminAnimalView';
+import AdminTrainingLogView from '@/components/views/AdminTrainingLogView';
 
 type View = 'training-logs' | 'animals' | 'all-training' | 'all-animals' | 'all-users';
 
@@ -39,6 +40,7 @@ export default function Dashboard() {
         {currentView === 'training-logs' && <TrainingLogView />}
         {currentView === 'animals' && <AnimalView />}
         {currentView === 'all-animals' && <AdminAnimalView />}
+        {currentView == 'all-training' && <AdminTrainingLogView />}
         {/* {currentView === 'animals' && <AnimalsView />}
         {currentView === 'all-training' && <AllTrainingView />}
         {currentView === 'all-animals' && <AllAnimalsView />}

@@ -20,7 +20,7 @@ export async function GET(request: Request) {
     
     if (!isAdmin) {
       return NextResponse.json(
-        { success: false, error: 'Unauthorized - Admin access required' },
+        { success: false, error: 'Need Admin' },
         { status: 403 }
       );
     }
