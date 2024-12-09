@@ -57,7 +57,7 @@ export default function AdminAnimalView() {
       <ViewHeader 
         title="Animals" 
       />
-      <div className="p-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="p-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {animals.map((animal) => (
           <AnimalCard 
             key={animal._id}

@@ -2,7 +2,8 @@ import connectDB from '@/lib/db'
 import { NextResponse } from 'next/server'
 import { User } from '@/models/user.model'
 import { isValidEmail, isValidPassword } from '@/lib/credentialValidation'
-
+import bcrypt from 'bcrypt'
+  
 export async function POST(request: Request) {
   try {
     // Connect to Database
@@ -44,10 +45,13 @@ export async function POST(request: Request) {
       );
     }
     
+    const salt = 10;
+    const hashedPassword = await bcrypt.hash(password, salt)
+
     const newUser = await User.create({
       fullName,
       email,
-      password,
+      password: hashedPassword,
       admin: admin || false
     });
 

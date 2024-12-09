@@ -15,11 +15,11 @@ export default function Dashboard() {
   const router = useRouter();
   const [currentView, setCurrentView] = useState<View>('training-logs');
   const { user } = useAuth();
-  const [mounted, setMounted] = useState(false);
+  // const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // useEffect(() => {
+  //   setMounted(true);
+  // }, []);
 
   useEffect(() => {
     if (!user) {
@@ -27,9 +27,9 @@ export default function Dashboard() {
     }
   }, [user, router]);
 
-  if (!mounted || !user) {
-    return null; 
-  }
+  // if (!mounted || !user) {
+  //   return null; 
+  // }
 
   return (
     <div className="flex h-[calc(100vh-102px)]">
